@@ -1,6 +1,6 @@
 ![header](https://capsule-render.vercel.app/api?type=wave&color=auto&height=400&section=header&text=ASK-me%20Anything&fontSize=90)
 
-![go](https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white)![pgsql](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)![tern](https://img.shields.io/badge/tern-316192?style=for-the-badge&logo=tern&logoColor=white)![sqlc](https://img.shields.io/badge/node?style=for-the-badge&logo=tern&logoColor=white)
+![go](https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white)![pgsql](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 
 # ASK-me Anything
 
