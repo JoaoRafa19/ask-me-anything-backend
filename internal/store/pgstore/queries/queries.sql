@@ -3,5 +3,7 @@ select "id", "theme"
 from rooms 
 where id = $1;
 
-
--- name GetRooms
+-- name: GetRooms :many
+select
+"id", "theme"
+from rooms;

@@ -23,3 +23,29 @@ func (q *Queries) GetRoom(ctx context.Context, id uuid.UUID) (Room, error) {
 	err := row.Scan(&i.ID, &i.Theme)
 	return i, err
 }
+
+const getRooms = `-- name: GetRooms :many
+select
+"id", "theme"
+from rooms
+`
+
+func (q *Queries) GetRooms(ctx context.Context) ([]Room, error) {
+	rows, err := q.db.Query(ctx, getRooms)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var items []Room
+	for rows.Next() {
+		var i Room
+		if err := rows.Scan(&i.ID, &i.Theme); err != nil {
+			return nil, err
+		}
+		items = append(items, i)
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
