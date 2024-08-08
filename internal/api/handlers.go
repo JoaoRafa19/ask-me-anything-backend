@@ -17,7 +17,8 @@ import (
 
 func (h apiHandler) handleEcho(w http.ResponseWriter, r *http.Request) {
 	message := chi.URLParam(r, "message")
-	w.Write([]byte(message))
+	fmt.Println("Hello")
+	w.Write([]byte("echo " + message))
 }
 
 func (h apiHandler) handleSubscribe(w http.ResponseWriter, r *http.Request) {

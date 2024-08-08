@@ -14,7 +14,7 @@
             "cwd": "${workspaceFolder}",
              "backend": "default",
             
-            "program": "${workspaceFolder}/cmd/wsrs/main.go"
+            "program": "${workspaceFolder}${pathSeparator}cmd${pathSeparator}wsrs${pathSeparator}main.go"
             
         }
     ]
