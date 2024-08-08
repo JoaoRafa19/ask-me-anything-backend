@@ -43,6 +43,10 @@ func main() {
 
 	handler := api.NewHandler(pgstore.New(pool))
 	go func() {
+		fmt.Println(
+			"PID",
+			os.Getpid(),
+		)
 		if err := http.ListenAndServe(":8082", handler); err != nil {
 			if !errors.Is(err, http.ErrServerClosed) {
 				panic(err)

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"log/slog"
 	"os/exec"
 
 	"github.com/joho/godotenv"
@@ -8,6 +9,7 @@ import (
 
 func main() {
 	if err := godotenv.Load(); err != nil {
+		slog.Error("Erro ao carregar variaveis", "erro", err)
 		panic(err)
 	}
 
@@ -16,10 +18,12 @@ func main() {
 		"migrate",
 		"--migrations",
 		"./internal/store/pgstore/migrations",
-		"--config", "./internal/store/pgstore/migrations/tern.conf",
+		"--config", 
+		"./internal/store/pgstore/migrations/tern.conf",
 	)
 
 	if err := cmd.Run(); err != nil {
+		slog.Error("Erro ao realizar migração", "erro", err)
 		panic(err)
 	}
 
