@@ -321,7 +321,27 @@ func (h apiHandler) handleGetRoomMessages(w http.ResponseWriter, r *http.Request
 		return
 	}
 
-	jsonMessages, err := json.Marshal(messages)
+	type messageGetMessagesResponse struct {
+		ID            string `json:"id"`
+		RoomID        string `json:"room_id"`
+		Message       string `json:"message"`
+		ReacionsCount int    `json:"reactions_count"`
+		Awnsered      bool   `json:"awnsered"`
+	}
+
+	var response []messageGetMessagesResponse
+
+	for message := range messages {
+		response = append(response, messageGetMessagesResponse{
+			ID: message.ID,
+			RoomID: message.RoomID,
+			Message: message.Message,
+			ReactionsCount: message.ReactionCount,
+			Awnsered: message.,
+		} )
+	}
+
+	jsonMessages, err := json.Marshal(response)
 	if err != nil {
 		http.Error(w, "something went wrong", http.StatusInternalServerError)
 		slog.Error(fmt.Sprintf("failed to get messages from %s", rawRoomId.String()), "error", err.Error())

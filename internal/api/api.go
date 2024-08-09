@@ -23,8 +23,10 @@ type MessageMessageCreated struct {
 	Message string `json:"message"`
 }
 
+
+
 type MessageMessageReacted struct {
-	ID           string `json:"id"`
+	ID string `json:"id"`
 }
 
 type Message struct {
